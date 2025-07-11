@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecionando para o WhatsApp...</title>
+  <script>
+    async function redirecionar() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const utm_source = urlParams.get("utm_source") || "";
+      const utm_medium = urlParams.get("utm_medium") || "";
+      const utm_campaign = urlParams.get("utm_campaign") || "";
+      const utm_content = urlParams.get("utm_content") || "";
+      const utm_term = urlParams.get("utm_term") || "";
+
+      const scriptUrl = "https://script.google.com/macros/s/AKfycbyKItKgelpxjVBwEkaI2qBNtNh_W0j9NEq7-wif1O69BO5ZhQiDHN-5iKEnalwGFxfX/exec" +
+        `?utm_source=${utm_source}&utm_medium=${utm_medium}&utm_campaign=${utm_campaign}&utm_content=${utm_content}&utm_term=${utm_term}`;
+
+      try {
+        const response = await fetch(scriptUrl);
+        const link = await response.text();
+        window.location.href = link;
+      } catch (error) {
+        document.body.innerHTML = "Erro ao redirecionar para o WhatsApp.";
+        console.error(error);
+      }
+    }
+
+    redirecionar();
+  </script>
+</head>
+<body>
+  <p style="font-family: sans-serif;">Redirecionando para o WhatsApp...</p>
+</body>
+</html>
