@@ -1,28 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecionando para o WhatsApp...</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redirecionando...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom, #ffffff, #f5f5f5);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+      color: #333;
+    }
 
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1422648168937808');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1422648168937808&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
 
-  
+    .logo img {
+      height: 90px;
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      color: #666;
+    }
+
+    .dots::after {
+      content: '';
+      display: inline-block;
+      animation: loadingDots 1s infinite steps(3, end);
+    }
+
+    @keyframes loadingDots {
+      0% { content: ''; }
+      33% { content: '.'; }
+      66% { content: '..'; }
+      100% { content: '...'; }
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+    <img src="C:\Users\ARAGUAIA\Desktop\1 ARAGUAIA\ARAGUAIA CONSTRUÇÕES\Logos\img\Araguaia Construções - Copia.png" alt="Araguaia Construções" />
+    <img src="C:\Users\ARAGUAIA\Desktop\1 ARAGUAIA\ARAGUAIA CONSTRUÇÕES\Logos\img\WhatsApp.svg.webp" alt="WhatsApp" />
+  </div>
+
+  <div class="title">Redirecionando<span class="dots"></span></div>
+  <div class="subtitle">Conectando com um especialista da Araguaia Construções.</div>
+
   <script>
     async function redirecionar() {
       const urlParams = new URLSearchParams(window.location.search);
@@ -40,15 +81,12 @@ src="https://www.facebook.com/tr?id=1422648168937808&ev=PageView&noscript=1"
         const link = await response.text();
         window.location.href = link;
       } catch (error) {
-        document.body.innerHTML = "Erro ao redirecionar para o WhatsApp.";
+        document.body.innerHTML = "<strong>Erro ao redirecionar para o WhatsApp.</strong>";
         console.error(error);
       }
     }
 
     redirecionar();
   </script>
-</head>
-<body>
-  <p style="font-family: sans-serif;">Redirecionando para o WhatsApp...</p>
 </body>
 </html>
